@@ -25,7 +25,7 @@ class ApplicationViews extends Component {
           render={props => {
             return <Home />;
           }}
-        />{" "}
+        />
         <Route
           exact
           path="/animals"
@@ -36,7 +36,7 @@ class ApplicationViews extends Component {
               return <Redirect to="/login" />;
             }
           }}
-        />{" "}
+        />
         <Route
           path="/owners"
           render={props => {
@@ -46,7 +46,7 @@ class ApplicationViews extends Component {
               return <Redirect to="/login" />;
             }
           }}
-        />{" "}
+        />
         <Route
           path="/employees"
           render={props => {
@@ -57,7 +57,7 @@ class ApplicationViews extends Component {
             }
             
           }}
-        />{" "}
+        />
         <Route
           exact
           path="/locations"
@@ -68,7 +68,7 @@ class ApplicationViews extends Component {
               return <Redirect to="/login" />;
             }
           }}
-        />{" "}
+        />
         <Route
           exact
           path="/animals/:animalId(\d+)"
@@ -82,12 +82,12 @@ class ApplicationViews extends Component {
               />
             );
           }}
-        />{" "}
+        />
         <Route
           path="/locations/:locationId(\d+)"
           render={props => {
             console.log(props, parseInt(props.match.params.locationId));
-            // Pass the animalId to the AnimalDetailComponent
+           
             return (
               <LocationDetail
                 locationId={parseInt(props.match.params.locationId)}
@@ -95,20 +95,19 @@ class ApplicationViews extends Component {
               />
             );
           }}
-        />{" "}
+        />
         <Route
           path="/animals/new"
           render={props => {
             return <AnimalForm {...props} />;
           }}
-        />{" "}
+        />
         <Route
           path="/animals/:animalId(\d+)/edit" render={props => {
           return <AnimalEditForm {...props} />
           }}
 />
-        <Route path="/login" component={Login} />{" "}
-      </React.Fragment>
+        <Route path="/login" component={Login} />
     );
   }
 }
