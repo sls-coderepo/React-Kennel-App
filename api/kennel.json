@@ -19,17 +19,17 @@
   "employees": [
     {
       "id": 1,
-      "name": "Hasna",
+      "name": "Linda",
       "breed": "Poodle"
     },
     {
       "id": 2,
-      "name": "Aruna",
+      "name": "Jennifer",
       "breed": "German Sheperd"
     },
     {
       "id": 3,
-      "name": "Pabina",
+      "name": "Sandra",
       "breed": "Pitbull"
     }
   ],
