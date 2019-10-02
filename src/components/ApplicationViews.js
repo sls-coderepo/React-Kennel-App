@@ -8,6 +8,7 @@ import OwnerList from "./owner/OwnerList";
 import AnimalDetail from "./animal/AnimalDetail";
 import LocationDetail from "./location/LocationDetail";
 import AnimalForm from "./animal/AnimalForm";
+import AnimalEditForm from "./animal/AnimalEditForm";
 import Login from "./auth/Login";
 
 class ApplicationViews extends Component {
@@ -69,6 +70,7 @@ class ApplicationViews extends Component {
           }}
         />{" "}
         <Route
+          exact
           path="/animals/:animalId(\d+)"
           render={props => {
             console.log(props, parseInt(props.match.params.animalId));
@@ -100,6 +102,11 @@ class ApplicationViews extends Component {
             return <AnimalForm {...props} />;
           }}
         />{" "}
+        <Route
+          path="/animals/:animalId(\d+)/edit" render={props => {
+          return <AnimalEditForm {...props} />
+          }}
+/>
         <Route path="/login" component={Login} />{" "}
       </React.Fragment>
     );
