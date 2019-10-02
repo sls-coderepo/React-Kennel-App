@@ -39,20 +39,33 @@ class ApplicationViews extends Component {
         <Route
           path="/owners"
           render={props => {
-            return <OwnerList {...props} />;
+            if (this.isAuthenticated()) {
+              return <OwnerList {...props} />;
+            } else {
+              return <Redirect to="/login" />;
+            }
           }}
         />{" "}
         <Route
           path="/employees"
           render={props => {
-            return <EmployeeList {...props} />;
+            if (this.isAuthenticated()) {
+              return <EmployeeList {...props} />;
+            } else {
+              return <Redirect to="/login" />;
+            }
+            
           }}
         />{" "}
         <Route
           exact
           path="/locations"
           render={props => {
-            return <LocationList {...props} />;
+            if (this.isAuthenticated()) {
+              return <LocationList {...props} />;
+            } else {
+              return <Redirect to="/login" />;
+            }
           }}
         />{" "}
         <Route
