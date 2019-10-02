@@ -20,17 +20,17 @@
     {
       "id": 1,
       "name": "Linda",
-      "breed": "Poodle"
+      "email": "linda@gmail.com"
     },
     {
       "id": 2,
       "name": "Jennifer",
-      "breed": "German Sheperd"
+      "email": "jennifer@gmail.com"
     },
     {
       "id": 3,
       "name": "Sandra",
-      "breed": "Pitbull"
+      "email": "sandra@gmail.com"
     }
   ],
   "owners": [
@@ -38,7 +38,7 @@
       "id": 2,
       "name": "Dog Hunt",
       "breed": "German Sheperd",
-      "animalId": 2
+     
     }
   ],
   "locations": [

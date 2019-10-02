@@ -43,12 +43,15 @@ class AnimalList extends Component {
 							this.props.history.push('/animals/new');
 						}}
 					>
-						Admit Animal
+						Add Animal
 					</button>
 				</section>
 				<div className='container-cards'>
 					{this.state.animals.map(animal => (
-						<AnimalCard key={animal.id} animal={animal} deleteAnimal={this.deleteAnimal} {...this.props}/>
+                        <AnimalCard key={animal.id} 
+                                    animal={animal} 
+                                    deleteAnimal={this.deleteAnimal}
+                                    {...this.props}/>
 					))}
 				</div>
 			</>

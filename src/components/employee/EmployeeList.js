@@ -34,6 +34,9 @@ class EmployeeList extends Component {
 		console.log("EMPLOYEE LIST: Render");
 
 		return (
+			<div>
+				<button type='button'>Add Employee</button>
+			</div>
 			<div className='container-cards'>
 				{this.state.employees.map(employee => (
 					<EmployeeCard
