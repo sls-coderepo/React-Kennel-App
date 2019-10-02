@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import React, { Component } from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
@@ -8,26 +8,53 @@ import OwnerList from "./owner/OwnerList";
 import AnimalDetail from "./animal/AnimalDetail";
 import LocationDetail from "./location/LocationDetail";
 import AnimalForm from "./animal/AnimalForm";
+import Login from "./auth/Login";
 
 class ApplicationViews extends Component {
+  // Check if credentials are in local storage
+  //returns true/false
+  isAuthenticated = () => localStorage.getItem("credentials") !== null;
+
   render() {
     return (
       <React.Fragment>
-        <Route exact path="/" render={props => {
-            return <Home />; }} 
-         />{" "}
-        <Route exact path="/animals" render={props => {
-            return <AnimalList {...props} />; }}
+        <Route
+          exact
+          path="/"
+          render={props => {
+            return <Home />;
+          }}
         />{" "}
-        <Route path="/owners" render={props => {
-            return <OwnerList {...props}/>;  }}
+        <Route
+          exact
+          path="/animals"
+          render={props => {
+            if (this.isAuthenticated()) {
+              return <AnimalList {...props} />;
+            } else {
+              return <Redirect to="/login" />;
+            }
+          }}
         />{" "}
-        <Route  path="/employees"  render={props => {
-            return <EmployeeList {...props}/>; }}
+        <Route
+          path="/owners"
+          render={props => {
+            return <OwnerList {...props} />;
+          }}
         />{" "}
-        <Route exact path="/locations" render={props => {
-            return <LocationList {...props}/>; }}
-        />
+        <Route
+          path="/employees"
+          render={props => {
+            return <EmployeeList {...props} />;
+          }}
+        />{" "}
+        <Route
+          exact
+          path="/locations"
+          render={props => {
+            return <LocationList {...props} />;
+          }}
+        />{" "}
         <Route
           path="/animals/:animalId(\d+)"
           render={props => {
@@ -60,6 +87,7 @@ class ApplicationViews extends Component {
             return <AnimalForm {...props} />;
           }}
         />{" "}
+        <Route path="/login" component={Login} />{" "}
       </React.Fragment>
     );
   }
