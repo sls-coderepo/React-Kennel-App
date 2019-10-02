@@ -8,8 +8,8 @@ class AnimalCard extends Component {
           <picture>
             <img src={require('./dog.svg')} alt="My Dog" />
           </picture>
-          <h3>Name: <span className="card-petname">Doodles</span></h3>
-          <p>Breed: Poodle</p>
+          <h3>Name: <span className="card-petname">{this.props.animal.name}</span></h3>
+          <p>Breed: {this.props.animal.breed}</p>
         </div>
       </div>
     );
