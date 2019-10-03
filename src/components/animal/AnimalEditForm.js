@@ -1,13 +1,16 @@
 import React, { Component } from "react"
 import AnimalManager from "../../modules/AnimalManager"
 import "./AnimalForm.css"
+import EmployeeManager from "../../modules/EmployeeManager"
 
 class AnimalEditForm extends Component {
     //set the initial state
     state = {
       animalName: "",
       breed: "",
+      employeeId: "",
       loadingStatus: true,
+      employees: []
     };
 
     handleFieldChange = evt => {
@@ -22,6 +25,7 @@ class AnimalEditForm extends Component {
       const editedAnimal = {
         id: this.props.match.params.animalId,
         name: this.state.animalName,
+        employeeId: parseInt(this.state.employeeId),
         breed: this.state.breed
       };
 
@@ -30,14 +34,28 @@ class AnimalEditForm extends Component {
     }
 
     componentDidMount() {
-      AnimalManager.get(this.props.match.params.animalId)
+      EmployeeManager.getAll()
+        .then(allEmployees => {
+          AnimalManager.get(this.props.match.params.animalId)
+            .then(animal => {
+              this.setState({
+                animalName: animal.name,
+                breed: animal.breed,
+                employeeId: animal.employeeId,
+                loadingStatus: false,
+                employees: allEmployees
+              });
+            })
+        })
+      /* AnimalManager.get(this.props.match.params.animalId)
       .then(animal => {
           this.setState({
             animalName: animal.name,
             breed: animal.breed,
+            employeeId: animal.employeeId,
             loadingStatus: false,
           });
-      });
+      }); */
     }
 
     render() {
@@ -66,12 +84,28 @@ class AnimalEditForm extends Component {
               />
               <label htmlFor="breed">Breed</label>
             </div>
+            <div>
+            <select
+                className="form-control"
+                id="employeeId"
+                value={this.state.employeeId}
+                onChange={this.handleFieldChange}
+>
+                {this.state.employees.map(employee =>
+     <option key={employee.id} value={employee.id}>
+       {employee.name}
+     </option>
+   )}
+</select>
+            </div>
+
             <div className="alignRight">
               <button
                 type="button" disabled={this.state.loadingStatus}
                 onClick={this.updateExistingAnimal}
                 className="btn btn-primary"
               >Submit</button>
+                         
             </div>
           </fieldset>
         </form>

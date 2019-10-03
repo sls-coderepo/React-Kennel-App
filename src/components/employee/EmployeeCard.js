@@ -10,6 +10,8 @@ class EmployeeCard extends Component {
 						Name: <span className='card-employeename'>{this.props.employee.name}</span>
 					</h3>
 					<p>Email: {this.props.employee.email}</p>
+					<button type="button"
+  						 onClick={() => { this.props.history.push(`/employees/${this.props.employee.id}/details`) }}>Details</button>
 					<button type='button' onClick={() => this.props.deleteEmployee(this.props.employee.id)}>
 						FIRE THEM
 					</button>

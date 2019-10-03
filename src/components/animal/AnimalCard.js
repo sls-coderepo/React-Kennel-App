@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { firstLetterCase } from "../../modules/Helpers";
+import AnimalManager from "../../modules/AnimalManager";
 
 class AnimalCard extends Component {
+	handleDelete = (id) => {
+		AnimalManager.delete(id)
+			.then(() => this.props.getData());
+	}
+
 	render() {
 		return (
 			<div className='card'>
@@ -17,7 +23,7 @@ class AnimalCard extends Component {
          		 	<button type="button"
             		  onClick={() => {this.props.history.push(`/animals/${this.props.animal.id}/edit`)}}>Edit
           			</button>
-					<button type='button' onClick={() => this.props.deleteAnimal(this.props.animal.id)}>
+					<button type='button' onClick={() => this.handleDelete(this.props.animal.id)}>
 						Discharge
 					</button>
 					<Link to={`/animals/${this.props.animal.id}`}>
