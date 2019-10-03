@@ -34,8 +34,11 @@ class EmployeeList extends Component {
 		console.log("EMPLOYEE LIST: Render");
 
 		return (
+			<>
 			<div>
-				<button type='button'>Add Employee</button>
+				<button type='button' className="btn" onClick={() => {
+							this.props.history.push('/employees/new');
+						}}>Add Employee</button>
 			</div>
 			<div className='container-cards'>
 				{this.state.employees.map(employee => (
@@ -46,6 +49,7 @@ class EmployeeList extends Component {
 					/>
 				))}
 			</div>
+			</>
 		);
 	}
 }
