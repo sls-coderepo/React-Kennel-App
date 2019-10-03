@@ -1,29 +1,16 @@
 {
   "animals": [
     {
-      "id": 1,
-      "name": "Poodles",
-      "breed": "German Sheperd"
-    },
-    {
-      "id": 3,
-      "name": "Tiger",
-      "breed": "German Sheperd"
-    },
-    {
-      "name": "Jack",
-      "breed": "Poddle",
-      "id": 4
-    },
-    {
+      "id": 5,
       "name": "shirish",
-      "breed": "test",
-      "id": 5
+      "employeeId": 9,
+      "breed": "test"
     },
     {
-      "name": "teset",
-      "breed": "teet",
-      "id": 6
+      "id": 6,
+      "name": "test",
+      "employeeId": 9,
+      "breed": "test"
     }
   ],
   "employees": [

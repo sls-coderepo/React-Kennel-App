@@ -10,7 +10,7 @@ class AnimalList extends Component {
 		animals: []
 	};
 
-	deleteAnimal = id => {
+	/* deleteAnimal = id => {
 		AnimalManager.delete(id).then(() => {
 			AnimalManager.getAll().then(newAnimals => {
 				this.setState({
@@ -19,15 +19,23 @@ class AnimalList extends Component {
 			});
 		});
 	};
-
-	componentDidMount() {
-		console.log('ANIMAL LIST: ComponentDidMount');
-		//getAll from AnimalManager and hang on to that data; put it in state
+ */
+	getData = () => {
 		AnimalManager.getAll().then(animals => {
 			this.setState({
 				animals: animals
 			});
 		});
+	}
+	componentDidMount() {
+		console.log('ANIMAL LIST: ComponentDidMount');
+		this.getData();
+		//getAll from AnimalManager and hang on to that data; put it in state
+		/* AnimalManager.getAll().then(animals => {
+			this.setState({
+				animals: animals
+			});
+		}); */
 	}
 
 	render() {
@@ -51,7 +59,9 @@ class AnimalList extends Component {
                         <AnimalCard key={animal.id} 
                                     animal={animal} 
                                     deleteAnimal={this.deleteAnimal}
-                                    {...this.props}/>
+                                    {...this.props}
+									getData = {this.getData}/>
+									
 					))}
 				</div>
 			</>

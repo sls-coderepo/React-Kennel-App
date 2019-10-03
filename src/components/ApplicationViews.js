@@ -7,6 +7,7 @@ import EmployeeList from "./employee/EmployeeList";
 import OwnerList from "./owner/OwnerList";
 import AnimalDetail from "./animal/AnimalDetail";
 import LocationDetail from "./location/LocationDetail";
+import EmployeeWithAnimals from "./employee/EmployeeWithAnimals";
 import AnimalForm from "./animal/AnimalForm";
 import AnimalEditForm from "./animal/AnimalEditForm";
 import EmployeeForm from "./employee/EmployeeForm";
@@ -15,8 +16,7 @@ import Login from "./auth/Login";
 class ApplicationViews extends Component {
   // Check if credentials are in local storage
   //returns true/false
-  isAuthenticated = () => localStorage.getItem("credentials") !== null;
-
+ 
   render() {
     return (
       <React.Fragment>
@@ -25,7 +25,7 @@ class ApplicationViews extends Component {
           }}
         />
         <Route  exact  path="/animals"  render={props => {
-            if (this.isAuthenticated()) {
+            if (this.props.user) {
               return <AnimalList {...props} />;
             } else {
               return <Redirect to="/login" />;
@@ -33,7 +33,7 @@ class ApplicationViews extends Component {
           }}
         />
         <Route  path="/owners"  render={props => {
-            if (this.isAuthenticated()) {
+            if (this.props.user) {
               return <OwnerList {...props} />;
             } else {
               return <Redirect to="/login" />;
@@ -41,7 +41,7 @@ class ApplicationViews extends Component {
           }}
         />
         <Route exact path="/employees"  render={props => {
-            if (this.isAuthenticated()) {
+            if (this.props.user) {
               return <EmployeeList {...props} />;
             } else {
               return <Redirect to="/login" />;
@@ -50,7 +50,7 @@ class ApplicationViews extends Component {
           }}
         />
         <Route  exact  path="/locations"  render={props => {
-            if (this.isAuthenticated()) {
+            if (this.props.user) {
               return <LocationList {...props} />;
             } else {
               return <Redirect to="/login" />;
@@ -68,6 +68,9 @@ class ApplicationViews extends Component {
             );
           }}
         />
+         <Route path="/employees/:employeeId(\d+)/details" render={(props) => {
+           return <EmployeeWithAnimals {...props} />
+        }} />
         <Route  path="/locations/:locationId(\d+)"  render={props => {
             console.log(props, parseInt(props.match.params.locationId));
             return (
@@ -90,7 +93,11 @@ class ApplicationViews extends Component {
           return <AnimalEditForm {...props} />
           }}
         />
-        <Route path="/login" component={Login} />
+        
+        {/* //pass the `setUser` function to Login component. */}
+        <Route path="/login" render={props => {
+           return <Login setUser={this.props.setUser} {...props} />
+          }} />
       </React.Fragment>
     );
   }

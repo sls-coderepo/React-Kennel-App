@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import AnimalManager from "../../modules/AnimalManager";
 import "./AnimalDetail.css";
 import { firstLetterCase } from "../../modules/Helpers";
+
 class AnimalDetail extends Component {
 	state = {
 		name: "",
@@ -13,7 +14,7 @@ class AnimalDetail extends Component {
 		//invoke the delete function in AnimalManger and re-direct to the animal list.
 		this.setState({ loadingStatus: true });
 		AnimalManager.delete(this.props.animalId).then(() => this.props.history.push("/animals"));
-	};
+	}; 
 
 	componentDidMount() {
 		console.log("AnimalDetail: ComponentDidMount");
