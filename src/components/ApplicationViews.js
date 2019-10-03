@@ -9,6 +9,7 @@ import AnimalDetail from "./animal/AnimalDetail";
 import LocationDetail from "./location/LocationDetail";
 import AnimalForm from "./animal/AnimalForm";
 import AnimalEditForm from "./animal/AnimalEditForm";
+import EmployeeForm from "./employee/EmployeeForm";
 import Login from "./auth/Login";
 
 class ApplicationViews extends Component {
@@ -19,17 +20,11 @@ class ApplicationViews extends Component {
   render() {
     return (
       <React.Fragment>
-        <Route
-          exact
-          path="/"
-          render={props => {
+        <Route exact  path="/"  render={props => {
             return <Home />;
           }}
         />
-        <Route
-          exact
-          path="/animals"
-          render={props => {
+        <Route  exact  path="/animals"  render={props => {
             if (this.isAuthenticated()) {
               return <AnimalList {...props} />;
             } else {
@@ -37,9 +32,7 @@ class ApplicationViews extends Component {
             }
           }}
         />
-        <Route
-          path="/owners"
-          render={props => {
+        <Route  path="/owners"  render={props => {
             if (this.isAuthenticated()) {
               return <OwnerList {...props} />;
             } else {
@@ -47,9 +40,7 @@ class ApplicationViews extends Component {
             }
           }}
         />
-        <Route
-          path="/employees"
-          render={props => {
+        <Route exact path="/employees"  render={props => {
             if (this.isAuthenticated()) {
               return <EmployeeList {...props} />;
             } else {
@@ -58,10 +49,7 @@ class ApplicationViews extends Component {
             
           }}
         />
-        <Route
-          exact
-          path="/locations"
-          render={props => {
+        <Route  exact  path="/locations"  render={props => {
             if (this.isAuthenticated()) {
               return <LocationList {...props} />;
             } else {
@@ -69,10 +57,7 @@ class ApplicationViews extends Component {
             }
           }}
         />
-        <Route
-          exact
-          path="/animals/:animalId(\d+)"
-          render={props => {
+        <Route  exact  path="/animals/:animalId(\d+)"  render={props => {
             console.log(props, parseInt(props.match.params.animalId));
             // Pass the animalId to the AnimalDetailComponent
             return (
@@ -83,11 +68,8 @@ class ApplicationViews extends Component {
             );
           }}
         />
-        <Route
-          path="/locations/:locationId(\d+)"
-          render={props => {
+        <Route  path="/locations/:locationId(\d+)"  render={props => {
             console.log(props, parseInt(props.match.params.locationId));
-           
             return (
               <LocationDetail
                 locationId={parseInt(props.match.params.locationId)}
@@ -96,18 +78,20 @@ class ApplicationViews extends Component {
             );
           }}
         />
-        <Route
-          path="/animals/new"
-          render={props => {
+        <Route  path="/animals/new"  render={props => {
             return <AnimalForm {...props} />;
           }}
         />
-        <Route
-          path="/animals/:animalId(\d+)/edit" render={props => {
+        <Route path="/employees/new" render={props => {
+          return <EmployeeForm {...props} />;
+        }}
+        />
+        <Route  path="/animals/:animalId(\d+)/edit" render={props => {
           return <AnimalEditForm {...props} />
           }}
-/>
+        />
         <Route path="/login" component={Login} />
+      </React.Fragment>
     );
   }
 }

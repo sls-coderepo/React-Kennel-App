@@ -14,8 +14,9 @@ class AnimalCard extends Component {
 						Name: <span className='card-petname'>{firstLetterCase(this.props.animal.name)}</span>
 					</h3>
 					<p>Breed: {this.props.animal.breed}</p>
-          <button type="button"
-        onClick={() => {this.props.history.push(`/animals/${this.props.animal.id}/edit`)}}>Edit</button>
+         		 	<button type="button"
+            		  onClick={() => {this.props.history.push(`/animals/${this.props.animal.id}/edit`)}}>Edit
+          			</button>
 					<button type='button' onClick={() => this.props.deleteAnimal(this.props.animal.id)}>
 						Discharge
 					</button>

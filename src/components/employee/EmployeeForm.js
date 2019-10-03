@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import employeeManager from '../../modules/employeeManager';
+import EmployeeManager from '../../modules/EmployeeManager';
 
 class EmployeeForm extends Component {
     state = {
-        employeeName = '',
-        employeeEmail = '',
-        loadingStatus = false
+        employeeName: '',
+        employeeEmail: '',
+        loadingStatus:false
     }
 
     handleFieldChange = evt => {
@@ -27,7 +27,7 @@ class EmployeeForm extends Component {
                  email: this.state.employeeEmail
              };
 
-             employeeManager.post(employee).then(() => this.props.history.push('/employees'));
+             EmployeeManager.post(employee).then(() => this.props.history.push('/employees'));
          }
      }
 	
@@ -37,13 +37,13 @@ class EmployeeForm extends Component {
          <form>
              <fieldset>
                  <div className='formgrid'>
-                     <input type='text'id='employeeName'></input>
-                     <label htmlFor='employeeName'></label>
-                     <input type='text' id='employeeEmail'></input>
-                     <label htmlFor='employeeEmail'></label>
+                     <input type='text' required onChange={this.handleFieldChange} id='employeeName' placeholder='Name' />
+                     <label htmlFor='employeeName'>Name</label>
+                     <input type='text' required onChange={this.handleFieldChange} id='employeeEmail' placeholder='Email' />
+                     <label htmlFor='employeeEmail'>Email</label>
                  </div>
                  <div className='alignRight'>
-                     <button>Submit</button>
+                     <button disabled={this.state.loadingStatus} onClick={this.constructNewEmployee}>Submit</button>
                  </div>
              </fieldset>
          </form>
@@ -51,3 +51,5 @@ class EmployeeForm extends Component {
      )
  }
 }
+
+export default EmployeeForm
