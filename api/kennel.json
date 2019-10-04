@@ -13,10 +13,10 @@
       "employeeId": 1
     },
     {
-      "name": "Eskimo",
-      "breed": "Poodle",
       "id": 8,
-      "employeeId": 2
+      "name": "Eskimo",
+      "employeeId": 1,
+      "breed": "Poodle"
     },
     {
       "name": "Diesel",
