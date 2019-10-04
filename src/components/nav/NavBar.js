@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter} from "react-router-dom"
+import { NavLink, withRouter} from "react-router-dom"
 import './NavBar.css'
 
 class NavBar extends Component {
@@ -17,19 +17,19 @@ class NavBar extends Component {
         </h1>
         <nav>
           <ul className="container">
-            <li><Link className="nav-link" to="/">Home</Link></li>
+            <li><NavLink className="nav-link" exact activeClassName="nav-link-active" to="/">Home</NavLink></li>
             {(this.props.user) ?
-                <li><Link className="nav-link" to="/animals">Animals</Link></li>
+                <li><NavLink className="nav-link" exact activeClassName="nav-link-active" to="/animals">Animals</NavLink></li>
             : null }
-            <li><Link className="nav-link" to="/locations">Locations</Link></li>
+            <li><NavLink className="nav-link" exact activeClassName="nav-link-active" to="/locations">Locations</NavLink></li>
             {(this.props.user) ?
                 <>
-                <li><Link className="nav-link" to="/employees">Employees</Link></li>
-                <li><Link className="nav-link" to="/owners">Owners</Link></li>
+                <li><NavLink className="nav-link" exact activeClassName="nav-link-active" to="/employees">Employees</NavLink></li>
+                <li><NavLink className="nav-link" exact activeClassName="nav-link-active" to="/owners">Owners</NavLink></li>
                 
                  <li><span className="nav-link" onClick={this.handleLogout}>Logout</span></li>
                  </>
-               : <li><Link className="nav-link" to="/login">Login</Link></li>
+               : <li><NavLink className="nav-link" exact activeClassName="nav-link-active" to="/login">Login</NavLink></li>
             }
           </ul>
         </nav>
