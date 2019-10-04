@@ -85,6 +85,7 @@ class AnimalEditForm extends Component {
               <label htmlFor="breed">Breed</label>
             </div>
             <div>
+            <label htmlFor="employeeId">Assign Employee</label>
             <select
                 className="form-control"
                 id="employeeId"
