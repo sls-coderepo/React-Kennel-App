@@ -32,11 +32,11 @@ class OwnerForm extends Component {
             <>
             <form>
                 <fieldset>
-                    <div>
+                    <div className="formgrid">
                         <input type="text" required onChange={this.handleFieldChange} id="ownerName" placeholder="Owner"></input>
                         <label htmlFor="ownerName">Owner Name</label>
                     </div>
-                    <div>
+                    <div className="alignRight">
                         <button disabled={this.state.locationStatus} onClick={this.constructNewOwner}>Submit</button>
                     </div>
                 </fieldset>
