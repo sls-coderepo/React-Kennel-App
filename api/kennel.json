@@ -1,10 +1,10 @@
 {
   "animals": [
     {
-      "name": "Cooper",
-      "breed": "German Shepherd",
       "id": 6,
-      "employeeId": 1
+      "name": "Cooper",
+      "employeeId": 1,
+      "breed": "German Shepherd"
     },
     {
       "name": "Max",
