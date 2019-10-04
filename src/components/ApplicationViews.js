@@ -26,6 +26,7 @@ class ApplicationViews extends Component {
           }}
         />
         <Route  exact  path="/animals"  render={props => {
+            
             if (this.props.user) {
               return <AnimalList {...props} />;
             } else {
