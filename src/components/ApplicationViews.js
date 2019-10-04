@@ -11,6 +11,7 @@ import EmployeeWithAnimals from "./employee/EmployeeWithAnimals";
 import AnimalForm from "./animal/AnimalForm";
 import AnimalEditForm from "./animal/AnimalEditForm";
 import EmployeeForm from "./employee/EmployeeForm";
+import LocationForm from "./location/LocationForm";
 import Login from "./auth/Login";
 
 class ApplicationViews extends Component {
@@ -89,6 +90,10 @@ class ApplicationViews extends Component {
           return <EmployeeForm {...props} />;
         }}
         />
+        <Route path="/locations/new" render={props => {
+          return <LocationForm {...props} />;
+        }}
+        /> 
         <Route  path="/animals/:animalId(\d+)/edit" render={props => {
           return <AnimalEditForm {...props} />
           }}

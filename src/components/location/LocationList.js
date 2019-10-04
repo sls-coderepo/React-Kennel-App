@@ -34,6 +34,12 @@ class LocationList extends Component {
 		console.log("LOCATION LIST: Render");
 
 		return (
+			<>
+			<div>
+				<button type='button' className="btn" onClick={() => {
+						this.props.history.push('/locations/new');}}>Add Location
+				</button>
+			</div>
 			<div className='container-cards'>
 				{this.state.locations.map(location => (
 					<LocationCard
@@ -43,6 +49,7 @@ class LocationList extends Component {
 					/>
 				))}
 			</div>
+			</>
 		);
 	}
 }

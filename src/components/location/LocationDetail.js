@@ -37,7 +37,7 @@ class LocationDetail extends Component {
 					</h3>
 					<p>Popular Breed: {this.state.breed}</p>
 					<button type='button' disabled={this.state.loadingStatus} onClick={this.handleDelete}>
-						Shut 'er Down
+					Close
 					</button>
 				</div>
 			</div>

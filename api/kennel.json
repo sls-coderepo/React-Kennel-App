@@ -1,86 +1,63 @@
 {
   "animals": [
     {
-      "id": 5,
-      "name": "shirish",
-      "employeeId": 9,
-      "breed": "test"
+      "name": "Cooper",
+      "breed": "German Shepherd",
+      "id": 6,
+      "employeeId": 1
     },
     {
-      "id": 6,
-      "name": "test",
-      "employeeId": 9,
-      "breed": "test"
+      "name": "Max",
+      "breed": "BullDog",
+      "id": 7,
+      "employeeId": 1
+    },
+    {
+      "name": "Eskimo",
+      "breed": "Poodle",
+      "id": 8,
+      "employeeId": 2
+    },
+    {
+      "name": "Diesel",
+      "breed": "Poodle",
+      "id": 9,
+      "employeeId": 3
     }
   ],
   "employees": [
     {
-      "name": "test",
-      "email": "test",
-      "id": 5
+      "name": "Jennifer",
+      "email": "jennifer@gmail.com",
+      "id": 1
     },
     {
-      "name": "test",
-      "email": "test",
-      "id": 6
+      "name": "Sandra",
+      "email": "sandra@gmail.com",
+      "id": 2
     },
     {
-      "name": "rrr",
-      "email": "fdgfd",
-      "id": 7
-    },
-    {
-      "name": "test1",
-      "email": "teat1",
-      "id": 8
-    },
-    {
-      "name": "dsdfds",
-      "email": "sdfsd",
-      "id": 9
-    },
-    {
-      "name": "sdf",
-      "email": "sdfds",
-      "id": 10
-    },
-    {
-      "name": "shissd",
-      "email": "dasds",
-      "id": 11
-    },
-    {
-      "name": "sdfsd",
-      "email": "cxcx",
-      "id": 12
-    },
-    {
-      "name": "adasd",
-      "email": "asdasdsd122",
-      "id": 13
-    },
-    {
-      "name": "dasd",
-      "email": "adad",
-      "id": 14
+      "name": "Silyia",
+      "email": "sl@gmail.com",
+      "id": 3
     }
   ],
   "owners": [],
   "locations": [
     {
-      "id": 1,
-      "name": "Nashville",
-      "breed": "hip dogs"
-    },
-    {
-      "id": 2,
       "name": "Mt Juliet",
-      "breed": "underwalked dogs"
+      "breed": "German Shepherd",
+      "id": 1
     },
     {
-      "id": 3,
       "name": "Hendersonville",
-      "breed": "lifeguard dogs"
+      "breed": "German Shepherd",
+      "id": 2
+    },
+    {
+      "name": "Franklin",
+      "breed": "Poodle",
+      "id": 3
     }
   ]
 }
