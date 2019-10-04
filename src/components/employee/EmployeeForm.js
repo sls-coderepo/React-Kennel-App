@@ -19,7 +19,7 @@ class EmployeeForm extends Component {
      constructNewEmployee = evt => {
          evt.preventDefault();
          if(this.state.employeeName === '' || this.state.employeeEmail === '') {
-             window.alert('Please fill your name ans email');
+             window.alert('Please fill your name and email');
          } else {
              this.setState({loadingStatus: true});
              const employee = {

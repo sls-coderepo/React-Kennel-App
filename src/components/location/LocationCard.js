@@ -13,7 +13,7 @@ class LocationCard extends Component {
 					</h3>
 					<p>Most popular breed: {this.props.location.breed}</p>
 					<button type='button' onClick={() => this.props.deleteLocation(this.props.location.id)}>
-						BURN IT DOWN
+						Close a Location
 					</button>
 					<Link to={`/locations/${this.props.location.id}`}>
 						<button>Details</button>
